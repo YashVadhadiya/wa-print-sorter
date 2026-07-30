@@ -1,0 +1,17 @@
+{
+  "name": "printhub",
+  "version": "1.0.0",
+  "description": "PrintHub - Web-Based WhatsApp Print Automation Platform",
+  "private": true,
+  "scripts": {
+    "start": "cd agent && node server.js",
+    "dev": "cd agent && node --watch server.js",
+    "setup": "cd agent && npm install",
+    "test": "cd tests && node test-all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PrintHub Configuration",
+  "type": "object",
+  "properties": {
+    "server": {
+      "type": "object",
+      "properties": {
+        "port": { "type": "integer", "minimum": 1024, "maximum": 65535, "default": 4545 },
+        "host": { "type": "string", "default": "0.0.0.0" },
+        "ssl": { "type": "boolean", "default": false },
+        "sslCert": { "type": "string" },
+        "sslKey": { "type": "string" }
+      },
+      "required": ["port", "host"]
+    },
+    "whatsapp": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "autoReconnect": { "type": "boolean", "default": true },
+        "reconnectInterval": { "type": "integer", "default": 30000 },
+        "sessionPath": { "type": "string", "default": "./data/session" }
+      }
+    },
+    "downloads": {
+      "type": "object",
+      "properties": {
+        "basePath": { "type": "string", "default": "./data/downloads" },
+        "maxRetries": { "type": "integer", "default": 3 },
+        "autoDownload": { "type": "boolean", "default": true },
+        "allowedExtensions": { "type": "array", "items": { "type": "string" } },
+        "maxFileSize": { "type": "integer", "default": 1073741824 }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["json", "sqlite"], "default": "json" },
+        "backupEnabled": { "type": "boolean", "default": true }
+      }
+    },
+    "auth": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "token": { "type": "string" }
+      }
+    },
+    "logging": {
+      "type": "object",
+      "properties": {
+        "level": { "type": "string", "enum": ["error", "warn", "info", "debug"], "default": "info" }
+      }
+    }
+  }
+}
